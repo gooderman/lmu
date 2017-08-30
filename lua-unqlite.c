@@ -308,7 +308,7 @@ static const luaL_Reg unqlite_functions[] =
     { NULL, NULL}
 };
 
-int luaopen_unqlite(lua_State* L)
+LUALIB_API int luaopen_unqlite(lua_State* L)
 {
     luaL_newlib(L, unqlite_functions);
 

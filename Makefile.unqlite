@@ -1,0 +1,10 @@
+# Use your path
+HOME = /Users/jeep/skynet
+SKYNET_PATH = $(HOME)/skynet
+TARGET = $(SKYNET_PATH)/luaclib/unqlite.so
+
+$(TARGET) : lua-unqlite.c unqlite/unqlite.c
+	# gcc -Wall -g --shared -fPIC -o $@ $^ -I$(SKYNET_PATH)/3rd/lua
+	gcc -v -g -O2 -Wall -fPIC -dynamiclib -Wl,-undefined,dynamic_lookup -o $@ $^ -I$(SKYNET_PATH)/3rd/lua
+clean :
+	rm $(TARGET)
